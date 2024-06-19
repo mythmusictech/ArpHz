@@ -6,6 +6,8 @@
               pluginVST3Category="Tools">
   <MAINGROUP id="E42H31" name="ArpHz">
     <GROUP id="{86160F49-AD9F-4C5A-D8BB-3033C3EED672}" name="Source">
+      <FILE id="UIGS5W" name="MidiPropcessor.h" compile="0" resource="0"
+            file="Source/MidiPropcessor.h"/>
       <FILE id="jSP19R" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="lPIMMr" name="PluginProcessor.h" compile="0" resource="0"
