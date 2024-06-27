@@ -23,6 +23,8 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    
+    void toggleMode();
 
 private:
     // This reference is provided as a quick way for your editor to
@@ -31,18 +33,16 @@ private:
     
     //GUI Components
     juce::Slider rateKnob;
-    /*
     juce::TextButton buttonUp;
     juce::TextButton buttonDown;
     juce::TextButton buttonUpDown;
     juce::TextButton buttonDownUp;
-    */
     
     //juce::OwnedArray<juce::TextButton> modeButtons;
     
     //Labels
     juce::Label rateLabel;
-    //juce::Label modeLabel;
+    juce::Label modeLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ArpHzAudioProcessorEditor)
 };

@@ -32,13 +32,17 @@ ArpHzAudioProcessorEditor::ArpHzAudioProcessorEditor (ArpHzAudioProcessor& p)
     modeButtons[2]->setButtonText("Up/Down");
     modeButtons[4]->setButtonText("Down/Up");
     */
+    buttonUp.setButtonText("Up");
+    buttonDown.setButtonText("Down");
+    buttonUpDown.setButtonText("Up/Down");
+    buttonDownUp.setButtonText("Down/Up");
     
     //Set labels
     rateLabel.setText("Rate", juce::dontSendNotification);
     rateLabel.setEditable(false);
     
-    //modeLabel.setText("Mode", juce::dontSendNotification);
-    //modeLabel.setEditable(false);
+    modeLabel.setText("Mode", juce::dontSendNotification);
+    modeLabel.setEditable(false);
     
     //Add all GUI components
     addAndMakeVisible(&rateKnob);
@@ -51,6 +55,11 @@ ArpHzAudioProcessorEditor::ArpHzAudioProcessorEditor (ArpHzAudioProcessor& p)
     }
     addAndMakeVisible(&modeLabel);
     */
+    addAndMakeVisible(&buttonUp);
+    addAndMakeVisible(&buttonDown);
+    addAndMakeVisible(&buttonUpDown);
+    addAndMakeVisible(&buttonDownUp);
+    addAndMakeVisible(&modeLabel);
     
     //Set plugin window size
     setSize (450, 250);
@@ -76,7 +85,7 @@ void ArpHzAudioProcessorEditor::resized()
     auto marginX = getWidth() * 0.02;
     auto marginY = getHeight() * 0.02;
     auto knobSize = getWidth() * 0.3;
-    auto buttonWidth = getWidth() * 0.1;
+    auto buttonWidth = getWidth() * 0.15;
     auto buttonHeight = getHeight() * 0.1;
     auto textWidth = 100;
     auto textHeight = 50;
@@ -88,7 +97,18 @@ void ArpHzAudioProcessorEditor::resized()
     }
     modeLabel.setBounds(marginX, marginY, textWidth, textHeight);
     */
+    buttonUp.setBounds(marginX, 2 * marginY + textHeight, buttonWidth, buttonHeight);
+    buttonDown.setBounds(buttonUp.getX() + buttonWidth + marginX, 2 * marginY + textHeight, buttonWidth, buttonHeight);
+    buttonUpDown.setBounds(buttonDown.getX() + buttonWidth + marginX, 2 * marginY + textHeight, buttonWidth, buttonHeight);
+    buttonDownUp.setBounds(buttonUpDown.getX() + buttonWidth + marginX, 2 * marginY + textHeight, buttonWidth, buttonHeight);
+    modeLabel.setBounds(marginX, marginY, textWidth, textHeight);
     
     rateKnob.setBounds(getWidth() - knobSize - marginX, getHeight() - knobSize - marginY, knobSize, knobSize);
     rateLabel.setBounds(getWidth() - knobSize - (4 * marginX), getHeight() - (knobSize / 2) - marginY, textWidth, textHeight);
+}
+
+void toggleMode()
+{
+    //Only 1 mode should be selected at a time.
+    //This function is used to toggle all other buttons off when one is selected.
 }
